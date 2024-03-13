@@ -11,7 +11,7 @@ function App() {
     try {
       formData.append('csv_file', file);
       try {
-        const response = await fetch('http://localhost:8000/api/upload', {
+        const response = await fetch('https://coontrol-backend.vercel.app/api/upload', {
           method: 'POST',
           body: formData
         });
@@ -34,7 +34,7 @@ function App() {
 
   const handleDownload = async () => {
     try {
-      const response = await fetch('http://localhost:8000/api/download-csv');
+      const response = await fetch('https://coontrol-backend.vercel.app/api/download-csv');
       const blob = await response.blob();
 
       const url = window.URL.createObjectURL(new Blob([blob]));
